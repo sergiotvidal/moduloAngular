@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { tap } from 'rxjs/operators';
 import { AuthInfo } from '../core.models';
+import { Router } from '@angular/router';
 
 @Injectable({
     providedIn: 'root'
@@ -12,7 +13,7 @@ export class AuthService {
   
   authInfo: AuthInfo;
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.authInfo = JSON.parse(localStorage.getItem('auth'));
   }
 
@@ -39,4 +40,10 @@ export class AuthService {
         password
     });
   };
+
+  logout() {
+    localStorage.removeItem('auth');
+    this.authInfo = null;
+    this.router.navigate(['/welcome'])
+  }
 }

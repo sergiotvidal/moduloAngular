@@ -11,7 +11,7 @@ import { ErrorInterceptor } from './interceptors/error.interceptor';
     HttpClientModule
   ],
   providers: [
-    {provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true},
+    { provide: HTTP_INTERCEPTORS, useClass: JWTInterceptor, multi: true },
     { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true }
   ]
 })

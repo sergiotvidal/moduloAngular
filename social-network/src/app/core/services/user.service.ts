@@ -10,7 +10,7 @@ import { AuthService } from './auth.service';
 })
 
 export class UserService {
-  
+
   currentUser: SocialNetworkUser;
 
   constructor(private http: HttpClient,
